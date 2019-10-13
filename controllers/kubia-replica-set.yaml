@@ -1,20 +1,20 @@
-apiVersion: v1
-kind: ReplicationController
+apiVersion: apps/v1
+kind: ReplicaSet
 metadata:
-  name: kubia-rc
+  name: kubia-rs
 spec:
   replicas: 2
   selector:
-    matchLabels:
-      app: kubia
+     matchLabels:
+       app: kubia  
   template:
     metadata:
       labels:
         app: kubia
     spec:
       containers:
-      - name: kubia-rc
-        image: navkkrnair/kubia:rc
+      - name: kubia-rs
+        image: navkkrnair/kubia:rs
         imagePullPolicy: Always
         livenessProbe:
           initialDelaySeconds: 30
