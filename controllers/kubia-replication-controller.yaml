@@ -12,7 +12,7 @@ spec:
         app: kubia
     spec:
       containers:
-      - name: kubia-rc
+      - name: kubia
         image: navkkrnair/kubia:rc
         imagePullPolicy: Always
         livenessProbe:
