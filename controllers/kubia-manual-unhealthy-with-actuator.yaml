@@ -4,7 +4,7 @@ metadata:
   name: kubia-liveness-with-actuator
 spec:
   containers:
-   - image: navkkrnair/kubia:unhealthy
+   - image: navkkrnair/kubia:actuator
      name: kubia-unhealthy
      imagePullPolicy: Always
      livenessProbe:

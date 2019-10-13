@@ -24,7 +24,7 @@ public class KubiaApplication
 	}
 
 	@GetMapping("/")
-	public Map<String, String> init() throws UnknownHostException, NotWellException
+	public Map<String, String> init() throws UnknownHostException
 	{
 		String hostname = InetAddress.getLocalHost().getHostName();
 		logger.info("Executing init() from host {}", hostname);
