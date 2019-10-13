@@ -17,8 +17,11 @@ spec:
         image: navkkrnair/kubia:rc
         imagePullPolicy: Always
         livenessProbe:
+          initialDelaySeconds: 30
+          periodSeconds: 10
           httpGet:
             path: /actuator/health
-            port: 8080            
+            port: 8080
+                        
         ports:
         - containerPort: 8080
