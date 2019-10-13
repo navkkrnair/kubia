@@ -9,10 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
@@ -20,7 +17,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class KubiaApplication
 {
 	private static final Logger logger = LoggerFactory.getLogger(KubiaApplication.class);
-	private int                 requestCount;
 
 	public static void main(String[] args)
 	{
@@ -30,21 +26,8 @@ public class KubiaApplication
 	@GetMapping("/")
 	public Map<String, String> init() throws UnknownHostException, NotWellException
 	{
-		requestCount++;
 		String hostname = InetAddress.getLocalHost().getHostName();
 		logger.info("Executing init() from host {}", hostname);
-		if (requestCount >= 5)
-		{
-			throw new NotWellException("I am not well. Please restart!!");
-		}
 		return Collections.singletonMap("hostname", hostname);
 	}
-
-	@ExceptionHandler
-	@ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-	public String handleException(NotWellException exception)
-	{
-		return exception.getMessage();
-	}
-
 }
