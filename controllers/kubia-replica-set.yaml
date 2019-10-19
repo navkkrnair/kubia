@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: kubia
-        image: navkkrnair/kubia:rs
+        image: navkkrnair/kubia:multiport
         imagePullPolicy: Always
         livenessProbe:
           initialDelaySeconds: 30
@@ -22,6 +22,8 @@ spec:
           httpGet:
             path: /actuator/health
             port: 8080
-                        
         ports:
-        - containerPort: 8080
+        - name: http
+          containerPort: 8080
+        - name: http2
+          containerPort: 8443  
