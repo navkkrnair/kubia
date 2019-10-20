@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: kubia-rs
+spec:
+  replicas: 3
+  selector:
+     matchLabels:
+       app: kubia  
+  template:
+    metadata:
+      labels:
+        app: kubia
+    spec:
+      containers:
+      - name: kubia
+        image: navkkrnair/kubia:multiport
+        imagePullPolicy: Always
+        livenessProbe:
+          initialDelaySeconds: 30
+          periodSeconds: 10
+          httpGet:
+            path: /actuator/health
+            port: 8080                                    
+        ports:
+        - name: http
+          containerPort: 8080
+        - name: http2
+          containerPort: 8443   
