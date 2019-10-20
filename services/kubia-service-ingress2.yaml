@@ -9,9 +9,9 @@ spec:
       paths:
       - path: /
         backend:
-          serviceName: kubia-service
+          serviceName: kubia-nodeport-service
           servicePort: 80
       - path: /kubia
         backend:
-          serviceName: kubia-service
+          serviceName: kubia-nodeport-service
           servicePort: 443    
