@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: kubia
-        image: navkkrnair/kubia:multiport
+        image: navkkrnair/kubia:ingress
         imagePullPolicy: Always
         livenessProbe:
           initialDelaySeconds: 30
