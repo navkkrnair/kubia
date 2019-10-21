@@ -3,6 +3,10 @@ kind: Ingress
 metadata:
   name: kubia-service-ingress
 spec:
+  tls:
+   - hosts:
+     - kubia.example.com
+     secretName: tls-secret
   rules:
   - host: kubia.example.com
     http:
@@ -10,8 +14,4 @@ spec:
       - path: /
         backend:
           serviceName: kubia-nodeport-service
-          servicePort: 80
-      - path: /kubia
-        backend:
-          serviceName: kubia-nodeport-service
-          servicePort: 443    
+          servicePort: http 
