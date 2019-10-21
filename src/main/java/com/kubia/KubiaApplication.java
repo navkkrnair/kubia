@@ -30,6 +30,14 @@ public class KubiaApplication
 			{
 				File file = new File(File.separatorChar + "var" + File.separatorChar + "ready");
 				logger.info("Creating file at: " + file);
+				try
+				{
+					Thread.currentThread().sleep(5000);
+				}
+				catch (InterruptedException e2)
+				{
+					e2.printStackTrace();
+				}
 				if (!(file.exists()))
 				{
 					try
