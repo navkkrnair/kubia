@@ -32,7 +32,7 @@ public class KubiaApplication
 				logger.info("Creating file at: " + file);
 				try
 				{
-					Thread.currentThread().sleep(5000);
+					Thread.currentThread().sleep(10000);
 				}
 				catch (InterruptedException e2)
 				{
