@@ -21,6 +21,10 @@ spec:
           httpGet:
             path: /actuator/health
             port: 8080
-                        
+        readinessProbe:
+          exec:
+            command:
+             - ls
+             - /var/ready                
         ports:
         - containerPort: 8080
