@@ -27,8 +27,8 @@ public class KubiaApplication
 	public Map<String, String> init() throws UnknownHostException
 	{
 		String hostname = InetAddress.getLocalHost().getHostName();
-		logger.info("Executing init() from host {}", hostname);
-		return Collections.singletonMap("hostname", hostname);
+		logger.info("Executing version1 from host {}", hostname);
+		return Collections.singletonMap("info", "This is v1 running from host: " + hostname);
 	}
 
 }
