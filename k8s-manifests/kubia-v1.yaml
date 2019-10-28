@@ -6,7 +6,6 @@ spec:
   replicas: 3
   template:
     metadata:
-      name: kubia-v1-pod
       labels:
          app: kubia
     spec:
