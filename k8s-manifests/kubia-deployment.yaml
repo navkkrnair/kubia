@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: kubia-container      
-        image: navkkrnair/kubia:v2
+        image: navkkrnair/kubia:v3
         imagePullPolicy: Always
         ports:
         - name: http

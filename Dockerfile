@@ -6,6 +6,6 @@ RUN apk add --no-cache bash
 RUN apk --no-cache add curl
 ENV APPROOT="/app"
 WORKDIR $APPROOT
-COPY target/kubia-2.0.jar $APPROOT
+COPY target/kubia-3.0.jar $APPROOT
 ENTRYPOINT ["java"]
-CMD ["-jar", "-Xms256m", "-Xmx256m", "kubia-2.0.jar"]
+CMD ["-jar", "-Xms256m", "-Xmx256m", "kubia-3.0.jar"]
