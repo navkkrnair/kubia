@@ -25,7 +25,8 @@ spec:
           exec:
             command:
              - ls
-             - var/ready  
+             - /var/ready  
+          initialDelaySeconds: 60
           
 ---
 apiVersion: v1
