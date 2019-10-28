@@ -5,6 +5,10 @@ metadata:
   labels:
     service: kubia-deployment
 spec:
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
   replicas: 3
   selector:
     matchLabels:
