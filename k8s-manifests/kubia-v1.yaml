@@ -1,0 +1,36 @@
+kind: ReplicationController
+apiVersion: v1
+metadata:
+  name: kubia-v1-rc
+spec:
+  replicas: 3
+  template:
+    metadata:
+      name: kubia-v1-pod
+      labels:
+         app: kubia-v1
+    spec:
+       containers:
+         - name: kubia-container
+           image: navkkrnair/kubia:v1
+           imagePullPolicy: Always
+           ports:
+             - name: http 
+               containerPort: 8080
+               protocol: TCP
+               
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: kubia-service
+  labels:
+    service: kubia-service
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+    targetPort: http
+    protocol: TCP
+  selector:
+    app: kubia-v1
