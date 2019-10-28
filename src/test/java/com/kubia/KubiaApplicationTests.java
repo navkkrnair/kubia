@@ -1,4 +1,4 @@
-package com.k8s;
+package com.kubia;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
