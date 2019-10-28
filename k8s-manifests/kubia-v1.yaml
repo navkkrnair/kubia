@@ -4,13 +4,15 @@ metadata:
   name: kubia-v1-rc
 spec:
   replicas: 3
+  selector:
+    app: kubia
   template:
     metadata:
       labels:
          app: kubia
     spec:
        containers:
-         - name: kubia-container
+         - name: kubia-v1-container
            image: navkkrnair/kubia:v1
            imagePullPolicy: Always
            ports:
