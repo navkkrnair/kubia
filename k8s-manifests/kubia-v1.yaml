@@ -8,7 +8,7 @@ spec:
     metadata:
       name: kubia-v1-pod
       labels:
-         app: kubia-v1
+         app: kubia
     spec:
        containers:
          - name: kubia-container
@@ -33,4 +33,4 @@ spec:
     targetPort: http
     protocol: TCP
   selector:
-    app: kubia-v1
+    app: kubia
