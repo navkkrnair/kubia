@@ -1,0 +1,35 @@
+kind: StatefulSet
+apiVersion: apps/v1
+metadata:
+  name: kubia-ss
+spec:
+   selector:
+     matchLabels:
+       app: kubia
+   serviceName: kubia-headless-service
+   replicas: 2
+   template:
+     metadata:
+       labels:
+         app: kubia
+     spec:
+       containers:
+        - name: kubia-container
+          image: navkkrnair/kubia:pet
+          imagePullPolicy: Always
+          ports:
+           - name: http
+             containerPort: 8080
+          volumeMounts:
+            - name: data
+              mountPath: /var/data
+   volumeClaimTemplates:
+    - metadata:
+        name: data
+      spec:
+        resources:
+          requests:
+            storage: 1Mi
+        accessModes:
+         - ReadWriteOnce                      
+
