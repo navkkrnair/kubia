@@ -29,7 +29,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class KubiaApplication
 {
 	private static final Logger logger = LoggerFactory.getLogger(KubiaApplication.class);
-	// For windows use "D:" + File.separatorChar + "var" + File.separatorChar + "data" + File.separatorChar	+ "kubia.txt";
+	// To test in windows, use "D:" + File.separatorChar + "var" + File.separatorChar + "data" + File.separatorChar	+ "kubia.txt";
 	private static final String dataFile = File.separatorChar + "var" + File.separatorChar + "data" + File.separatorChar
 			+ "kubia.txt";
 
