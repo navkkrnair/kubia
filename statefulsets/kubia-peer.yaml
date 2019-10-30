@@ -7,7 +7,7 @@ spec:
      matchLabels:
        app: kubia
    serviceName: kubia-headless-service
-   replicas: 2
+   replicas: 3
    template:
      metadata:
        labels:
