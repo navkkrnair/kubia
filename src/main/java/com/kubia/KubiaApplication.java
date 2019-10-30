@@ -56,12 +56,13 @@ public class KubiaApplication
 			env.put("java.naming.factory.initial", "com.sun.jndi.dns.DnsContextFactory");
 			env.put("java.naming.provider.url", "dns:");
 			DirContext ctx   = new InitialDirContext(env);
-			Attributes attrs = ctx.getAttributes("technopanishad.in", new String[]
+			Attributes attrs = ctx.getAttributes(Constants.SERVICE_NAME, new String[]
 			{ "SRV" });
 			NamingEnumeration en = attrs.getAll();
 			while (en.hasMoreElements())
 			{
 				Object object = (Object) en.nextElement();
+				System.out.println(object);
 				
 			}
 		};
